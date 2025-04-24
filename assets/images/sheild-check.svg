@@ -1,0 +1,18 @@
+<svg width="58" height="66" viewBox="0 0 58 66" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="paint0_linear" x1="0.923584" y1="5.01457" x2="27.5087" y2="5.77753" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#193B61"/>
+      <stop offset="1" stop-color="#008CCB"/>
+    </linearGradient>
+  </defs>
+  <!-- Shield Background with subtle pulse and slow scaling -->
+  <path d="M57.1505 16.2537V27.017C57.1941 35.2873 54.6233 43.36 49.8053 50.0821C44.9873 56.8042 38.1684 61.8321 30.3225 64.4477C29.4888 64.7293 28.5858 64.7293 27.7521 64.4477C19.9062 61.8321 13.0874 56.8042 8.26934 50.0821C3.45134 43.36 0.880558 35.2873 0.924129 27.017V16.2537C0.926377 15.512 1.13395 14.7855 1.52383 14.1546C1.91372 13.5237 2.47069 13.013 3.13302 12.6793L27.23 0.630788C27.7906 0.348314 28.4096 0.201172 29.0373 0.201172C29.665 0.201172 30.284 0.348314 30.8446 0.630788L54.9416 12.6793C55.6039 13.013 56.1609 13.5237 56.5508 14.1546C56.9407 14.7855 57.1483 15.512 57.1505 16.2537Z" fill="url(#paint0_linear)">
+    <animate attributeName="opacity" values="1;0.8;1" dur="2s" repeatCount="indefinite"/>
+  </path>
+  <!-- Checkmark Fade-In Effect -->
+  <path d="M25.4243 42.0837L16.3517 33.0111L19.1411 30.2221L25.4243 36.5053L38.9336 22.9961L41.7229 25.7851L25.4243 42.0837Z" 
+    fill="#ffffff">
+  </path>
+  <!-- Slow Scaling Effect on Shield -->
+  <animateTransform attributeType="XML" attributeName="transform" type="scale" values="1;1.05;1" dur="5s" repeatCount="indefinite"/>
+</svg>
