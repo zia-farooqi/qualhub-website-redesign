@@ -1,4 +1,4 @@
 # qualhub-website
-* Template : Qualhub
-* Updated: April 24 2025 with Bootstrap v5.3.3
-* Author: Squad B
+* Template : Qualhub Web
+* Updated: May 30 2025
+* Author: Core A

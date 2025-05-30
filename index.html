@@ -121,12 +121,14 @@
 
                             <div class="hero-buttons d-lg-flex d-grid justify-content-lg-center align-items-center gap-2 gap-lg-3 text-center" data-aos="fade-up" data-aos-delay="300">
                                 <a data-bs-toggle="modal" data-bs-target="#requestDemo" class="btn btn-primary btn-lg d-sm-inline-block">Request a demo</a>
-                                <!-- <div class="fw-semibold d-sm-inline-block" style="font-size: 18px;">or</div>
-                                <a href="https://www.youtube.com/watch?v=PBQKEz1noxE"
-                                   class="btn btn-outline-secondary btn-lg d-sm-inline-block glightbox">
-                                    <i class="bi bi-play-circle-fill me-1"></i>
-                                    Play Video
-                                </a> -->
+                                <div class="fw-semibold d-sm-inline-block" style="font-size: 18px;">or</div>
+                                <button
+                                    class="btn btn-outline-secondary btn-lg d-sm-inline-block"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#videoModal"
+                                >
+                                    <i class="bi bi-play-circle-fill me-1"></i> See a short video
+                                </button>
                             </div>
 
                             <div class="highlights-content d-lg-flex d-none flex-lg-row flex-column gap-lg-4 gap-2 justify-content-center" data-aos="fade-up" data-aos-delay="400">
@@ -769,13 +771,51 @@
             </div>
             <div class="modal-body p-0">
             <!-- HubSpot Form Embed -->
-            <div id="hubspotFormContainer" class="p-2">
+            <div id="hubspotFormContainer" class="p-2" style="min-height: 520px;">
                 <!-- HubSpot form will be rendered here -->
             </div>
             </div>
         </div>
         </div>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered mx-auto" style="max-width: 400px;">
+            <div class="modal-content bg-dark rounded-3 shadow">
+                <div class="modal-video-wrapper">
+                    
+                    <!-- Close button -->
+                    <button type="button" class="close-video-btn" data-bs-dismiss="modal" aria-label="Close">&times;</button>
+
+                    <!-- Wistia vertical video embed (fills height) -->
+                             <!-- Wistia video embed -->
+                    <div class="wistia_responsive_padding" style="padding-top: 177.78%; position: relative;">
+                        <div class="wistia_responsive_wrapper" style="height: 100%; left: 0; position: absolute; top: 0; width: 100%;">
+                            <script src="https://fast.wistia.com/embed/y65wmj6qk3.js" async type="module"></script>
+                            <iframe
+                            src="https://fast.wistia.net/embed/iframe/y65wmj6qk3"
+                            allowtransparency="true"
+                            frameborder="0"
+                            scrolling="no"
+                            class="wistia_embed"
+                            name="wistia_embed"
+                            allowfullscreen
+                            mozallowfullscreen
+                            webkitallowfullscreen
+                            oallowfullscreen
+                            msallowfullscreen
+                            width="100%"
+                            height="100%"
+                            style="border-radius: 0.5rem;"
+                            ></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <!-- Scroll Top -->
     <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
@@ -962,9 +1002,18 @@
                 return window.innerWidth < 992; // Disable AOS on screens smaller than 768px
             }
         });
+
+        // Video reset when modal is closed
+        const videoModal = document.getElementById('videoModal');
+
+        videoModal.addEventListener('hidden.bs.modal', () => {
+            const iframe = videoModal.querySelector('iframe');
+            const src = iframe.src;
+            iframe.src = src; // Reset the src to stop video
+        });
     </script>
 
-    <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+    <script type="text/javascript" src="https://js.hsforms.net/forms/embed/v2.js"></script>
     <script>
     hbspt.forms.create({
         portalId: "20130333",
