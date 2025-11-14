@@ -2316,3 +2316,14 @@
      background-size: 100% 80px;
    }
  }
+
+ #screen-1 {
+     min-height: calc(100vh - 342px);
+   }
+  @media (min-width: 992px) {
+   #screen-1 {
+     min-height: calc(100vh - 185px);
+   }
+ }
+
+
