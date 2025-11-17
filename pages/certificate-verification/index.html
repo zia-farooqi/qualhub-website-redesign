@@ -34,7 +34,7 @@
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div
       class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between px-3 px-md-5">
-      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+      <a href="/index.html" class="logo d-flex align-items-center me-auto me-xl-0">
         <img src="../../assets/images/logo.svg" alt="Logo Qualhub" class="img-fluid">
       </a>
       <div class="d-flex gap-3 align-items-center">
@@ -326,9 +326,8 @@
                   verifyNewBtn: $('.VerifyNewCertificate')
                 };
 
-                // API Configuration
                 const CONFIG = {
-                  apiURL: 'https://staging-api.qualhub.org/api/v2/trainee/certificate/verify',
+                  apiURL: '/api/certificate-verify',
                   certificateRegex: /^\d{9}$/,
                   fadeSpeed: 400
                 };
@@ -349,7 +348,7 @@
                     type: 'GET',
                     data: { certificate_number: certificateNumber },
                     dataType: 'json',
-                    timeout: 10000
+                    timeout: 10000,
                   });
                 }
 
