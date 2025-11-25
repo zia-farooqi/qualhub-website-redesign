@@ -304,11 +304,9 @@
             <script src="../../assets/vendor/aos/aos.js"></script>
             <script src="../../assets/vendor/swiper/swiper-bundle.min.js"></script>
             <!-- Main JS File -->
-            <script src="../../assets/js/main.js"></script>
             <!-- <script src="../../assets/js/main.js"></script> -->
             <script>
-              (function () {
-                'use strict';
+              $(document).ready(function () {
 
                 // Varibales
                 const urlParams = new URLSearchParams(window.location.search);
@@ -439,8 +437,9 @@
 
                 // Start when DOM ready
                 $(init);
-              })();
+              });
             </script>
+            <script src="../../assets/js/main.js"></script>
 </body>
 
 </html>
