@@ -17,7 +17,7 @@ app.get("/api/certificate-verify", async (req, res) => {
           Authorization:
             "Basic " +
             Buffer.from(
-              `${process.env.name}:${process.env.password}`
+              `${process.env.candidateName}:${process.env.candidatepassword}`
             ).toString("base64"),
         },
       }
