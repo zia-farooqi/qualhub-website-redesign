@@ -306,6 +306,12 @@
             <!-- Main JS File -->
             <!-- <script src="../../assets/js/main.js"></script> -->
             <script>
+
+              // Loader handling
+              $(window).on('load', function () {
+                $("#loader").fadeOut(1000, () => DOM.content.fadeIn(3000));
+              });
+
               $(document).ready(function () {
 
                 // Varibales
@@ -313,7 +319,6 @@
                 const getCertificateNumber = urlParams.get('certificateNumber');
                 const certificateNumber = getCertificateNumber;
                 const DOM = {
-                  loader: $('#loader'),
                   content: $('#content'),
                   form: $('#verifyCertificateForm'),
                   certificateInput: $('#getCertificateNumber'),
@@ -329,6 +334,7 @@
                   certificateRegex: /^\d{9}$/,
                   fadeSpeed: 400
                 };
+
 
                 // Validation
                 function validateCertificateNumber(number) {
@@ -421,11 +427,6 @@
                     showScreen2();
                     verifyCertificate(certificateNumber);
                   }
-
-                  // Loader handling
-                  $(window).on('load', function () {
-                    DOM.loader.fadeOut(1000, () => DOM.content.fadeIn(1000));
-                  });
 
                   // Form submission
                   DOM.form.on('submit', function (e) {
