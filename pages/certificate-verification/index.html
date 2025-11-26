@@ -309,7 +309,7 @@
 
               // Loader handling
               $(window).on('load', function () {
-                $("#loader").fadeOut(1000, () => DOM.content.fadeIn(3000));
+                $("#loader").fadeOut(1000, () => $('#content').fadeIn(3000));
               });
 
               $(document).ready(function () {
@@ -319,7 +319,6 @@
                 const getCertificateNumber = urlParams.get('certificateNumber');
                 const certificateNumber = getCertificateNumber;
                 const DOM = {
-                  content: $('#content'),
                   form: $('#verifyCertificateForm'),
                   certificateInput: $('#getCertificateNumber'),
                   validationMsg: $('#validation-msgs'),
@@ -331,7 +330,7 @@
 
                 const CONFIG = {
                   apiURL: '/api/certificate-verify',
-                  certificateRegex: /^\d{9}$/,
+                  certificateRegex: /^\d{12}$/,
                   fadeSpeed: 400
                 };
 
