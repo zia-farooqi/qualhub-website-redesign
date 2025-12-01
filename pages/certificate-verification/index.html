@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Certificate verification</title>
+  <meta name="description"
+    content="Verify a candidate's Emergency First Aid at Work (QualHub) certificate issued by Get Licensed.">
+  <!-- Favicons -->
+  <link href="../../assets/images/favicon.png" rel="icon">
+  <link href="../../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap"
+    rel="stylesheet">
+  <!-- Vendor CSS Files -->
+  <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../../assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <!-- Main CSS File -->
+  <link href="../../assets/css/main.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body class="index-page bg-default">
+  <!-- Page Loader -->
+  <div id="loader">
+    <img src="../../assets/images/app_icon.svg" width="50px" height="50px" alt="Qualhub Loading" class="img-fluid">
+  </div>
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div
+      class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between px-3 px-md-5">
+      <a href="/index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        <img src="../../assets/images/logo.svg" alt="Logo Qualhub" class="img-fluid">
+      </a>
+      <div class="d-flex gap-3 align-items-center">
+        <nav id="navmenu" class="navmenu">
+          <ul class="gap-lg-2">
+            <li>
+              <a href="/#hero" onclick="scrollToSection(event, 'hero')">
+                <div class="d-flex justify-content-between w-100 align-items-center"> About Us <i
+                    class="bi bi-chevron-right icon d-xl-none"></i>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="/#what_we_do" onclick="scrollToSection(event, 'what_we_do')">
+                <div class="d-flex justify-content-between w-100 align-items-center"> What we do <i
+                    class="bi bi-chevron-right icon d-xl-none"></i>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="/#our_product" onclick="scrollToSection(event, 'our_product')">
+                <div class="d-flex justify-content-between w-100 align-items-center"> Our Product <i
+                    class="bi bi-chevron-right icon d-xl-none"></i>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="/#how_its_work" onclick="scrollToSection(event, 'how_its_work')">
+                <div class="d-flex justify-content-between w-100 align-items-center"> How it works <i
+                    class="bi bi-chevron-right icon d-xl-none"></i>
+                </div>
+              </a>
+            </li>
+            <li class="VerifyNewCertificate" style="display: none;">
+              <a href="/verify" class="btn btn-primary mx-3 mt-3 text-white d-lg-none d-block rounded btn-lg"">
+                            Verify another certificate</a>
+                        </li>
+                    </ul>
+                    <i class=" mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+        <div class="VerifyNewCertificate" style="display: none;">
+          <a href="/verify"
+            class="d-none d-lg-block btn btn-primary px-2 py-2 px-md-4 py-md-2 rounded-3 w-100 my-1 my-lg-3"">
+                Verify another certificate</a>
+        </div>
+            </div>
+        </div>
+    </header>
+    <main class=" main">
+            <section id="screen-1" class="d-flex justify-content-center align-items-center bg-default">
+              <div class="container-fluid py-5">
+                <div class="certificate-verification-card d-flex justify-content-center align-items-center">
+                  <div class="bg-white p-4 rounded-4 w-auto">
+                    <h4 class="mb-2 f">Certificate verification</h4>
+                    <p class="text-sm">Verify a certificate by entering the certificate number below.</p>
+                    <form id="verifyCertificateForm">
+                      <div class="my-4">
+                        <div class="form-input-field position-relative">
+                          <label for="getCertificateNumber"
+                            class="form-label fs-9 position-absolute rounded-3  bg-white px-2 py-1 m-0">Certificate
+                            number</label>
+                          <input type="text" class="form-control text-light-gray py-3 px-3" id="getCertificateNumber"
+                            value="" placeholder="e.g. 11535253">
+                        </div>
+                        <p id="validation-msgs" class="text-light-gray fs-7 mt-2 mb-0">Enter the certificate number
+                          exactly as printed on the certificate</p>
+                      </div>
+                      <button id="verifyCertificateFormBtn" type="submit" class="btn btn-lg btn-primary w-100">Verify
+                        certificate</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section id="screen-2" class="d-none justify-content-center align-items-center bg-default">
+              <div class="container d-flex justify-content-center pt-4 pt-lg my-5">
+                <div class="row g-4 w-100 justify-content-center">
+                  <!-- <div class="col-12 col-lg-6 order-2 order-lg-1">
+                    <div class="certificate-preview bg-white font-mona-sans shadow-xs p-3 p-md-4 rounded-3 w-100">
+                      <div class="certificate-bg position-relative">
+                        <div class="position-relative pt-4 pb-4 pt-xl-5 pb-xl-4">
+                          <div class="px-3 px-xl-5">
+                            <img src="../../assets/images/logo.svg" alt="Logo Qualhub" class="w-100 mt-2"
+                              style="max-width: 160px;">
+                            <h3 class="text-gray fs-6 fw-normal my-4"> CERTIFICATE <br> OF <strong>ACHIEVEMENT</strong>
+                            </h3>
+                            <div>
+                              <h3 class="text-gray fs-6 fw-light">We Hereby Confirm</h3>
+                              <h1 class="text-dark-gray fs-1 fw-medium text-uppercase certificate-candidate-name">
+                              </h1>
+                              <p class="text-gray fs-6 fw-normal mb-4">has successfully achieved all the requirements
+                                for <br> <strong class="text-dark">Emergency First Aid at Work</strong>
+                              </p>
+                            </div>
+                            <div class="my-3">
+                              <p class="text-gray fs-8 fw-normal mb-2">This course was taught/delivered in accordance
+                                with currently accepted <br> first-aid practice.</p>
+                              <p class="text-gray fs-8 fw-normal">In accordance with the Health &amp; Safety (First Aid)
+                                Regulations 1981. This certificate is valid for 3 years from the date of issue. Annual
+                                refresher <br> training is strongly recommended to prevent skills fade. </p>
+                            </div>
+                            <div class="mt-5 mb-5">
+                              <img src="../../assets/images/certificate-verification/trainer-signature.svg"
+                                alt="Logo Qualhub" class="img-fluid w-100" style="max-width: 100px;">
+                              <p class="text-gray fs-8 fw-normal">Director of Training <br>
+                                <strong class="text-dark-gray">Anthony Milner</strong>
+                              </p>
+                            </div>
+                          </div>
+                          <div
+                            class="d-flex gap-2 flex-wrap justify-content-between bg-light-primary px-4 py-4 px-xl-5 py-xl-4">
+                            <div class="d-flex flex-column">
+                              <div class="text-gray fs-8"> Center Name </div>
+                              <div class="text-dark-gray fs-8 fw-semibold certificate-center-name">
+                              </div>
+                            </div>
+                            <div class="d-flex flex-column">
+                              <div class="text-gray fs-8">Certificate No</div>
+                              <div class="text-dark-gray fs-8 fw-semibold certificate-number">
+                              </div>
+                            </div>
+                            <div class="d-flex flex-column">
+                              <div class="text-gray fs-8">Date of Issue</div>
+                              <div class="text-dark-gray fs-8 fw-semibold certificate-date-of-issue">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div> -->
+                  <div class="col-12 col-lg-8 m-0">
+                    <div class="card border-0 w-100 bg-white shadow-xs p-3 p-md-4 rounded-3">
+                      <div class="card-body p-0">
+                        <div
+                          class="d-flex justify-content-between align-items-center border-color border-bottom  pb-3 mb-3 pb-md-4 mb-md-4">
+                          <div class="d-flex align-items-center gap-2">
+                            <img src="../../assets/images/certificate-verification/check-icon.svg" alt="">
+                            <h6 class="mb-0 fw-bold"> Certificate is valid</h6>
+                          </div>
+                          <span class="chip-sucsess fs-7 px-3 py-1 rounded-5 border">Verified</span>
+                        </div>
+                        <ul class="d-flex flex-column gap-3 list-unstyled mb-0">
+                          <li class="d-flex justify-content-between">
+                            <span class="fs-6 text-gray fw-normal">Certificate No:</span>
+                            <strong class="text-dark fs-6 fw-semibold certificate-number"></strong>
+                          </li>
+                          <li class="d-flex justify-content-between">
+                            <span class="fs-6 text-gray fw-normal">Candidate:</span>
+                            <strong class="text-dark fs-6 fw-semibold certificate-candidate-name"></strong>
+                          </li>
+                          <li class="d-flex justify-content-between">
+                            <span class="fs-6 text-gray fw-normal">Date of issue:</span>
+                            <strong class="text-dark fs-6 fw-semibold certificate-date-of-issue"></strong>
+                          </li>
+                          <li class="d-flex justify-content-between">
+                            <span class="fs-6 text-gray fw-normal">Course date:</span>
+                            <strong class="text-dark fs-6 fw-semibold certificate-course-date"></strong>
+                          </li>
+                          <li class="d-flex justify-content-between">
+                            <span class="fs-6 text-gray fw-normal">Course:</span>
+                            <strong class="text-dark fs-6 fw-semibold certificate-course-name"></strong>
+                          </li>
+                          <li class="d-flex justify-content-between">
+                            <span class="fs-6 text-gray fw-normal">Centre:</span>
+                            <strong class="text-dark fs-6 fw-semibold certificate-center-name"></strong>
+                          </li>
+                          <li class="d-flex justify-content-between">
+                            <span class="fs-6 text-gray fw-normal">Location:</span>
+                            <strong class="text-dark fs-6 fw-semibold certificate-location"></strong>
+                          </li>
+                          <li class="d-flex justify-content-between">
+                            <span class="fs-6 text-gray fw-normal">Trainer:</span>
+                            <strong class="text-dark fs-6 fw-semibold certificate-trainer"></strong>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section id="screen-3" class="d-none justify-content-center align-items-center bg-default">
+              <div class="container d-flex pt-4 pt-lg mt-lg-4">
+                <div class="row m-0 w-100">
+                  <div class="col-12">
+                    <div class="bg-white shadow-xs p-4 rounded-3 w-100">
+                      <h4 class="fs-3"><strong>Certificate not found</strong></h4>
+                      <p>The certificate you scanned was not found in our system. </p>
+                      <a href="/pages/Certificate-verification/"
+                        class="btn btn-base btn-dark px-2 py-2 px-md-4 py-md-2 rounded-3">Verify again via certificate
+                        number</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            </main>
+            <footer class="footer pt-5">
+              <div class="container-fluid container-xl position-relative">
+                <div class="row">
+                  <div class="col-lg-3 col-12">
+                    <a href="index.html"
+                      class="logo d-flex align-items-center justify-content-center justify-content-lg-start me-auto me-xl-0">
+                      <img src="../../assets/images/logo-black.svg" alt="Logo Qualhub" class="img-fluid">
+                    </a>
+                  </div>
+                  <div class="col-lg-9 col-6 d-lg-block d-none">
+                    <div class="d-flex gap-3 align-items-center justify-content-lg-end justify-content-center">
+                      <div class="off-address">
+                        <h5 class="text-end">Office Address</h5>
+                        <p>36 Scotts Road, Bromley, England, BR1 3QD</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row flex-lg-row-reverse align-items-center">
+                  <div class="col-lg-6 col-12">
+                    <div class="d-flex gap-3 align-items-center justify-content-lg-end">
+                      <nav id="navmenu" class="footer-navmenu">
+                        <ul class="gap-lg-2">
+                          <li><a href="/privacyPolicy.html">Privacy Policy</a></li>
+                          <li><a class="pe-0" href="#hero" onclick="scrollToSection(event, 'hero')">About Us</a>
+                          </li>
+                        </ul>
+                      </nav>
+                    </div>
+                  </div>
+                  <div class="col-12 d-lg-none">
+                    <div class="d-flex gap-3 align-items-center justify-content-center text-center mt-4">
+                      <div class="off-address">
+                        <h5>Office Address</h5>
+                        <p class="d-flex justify-content-between">36 Scotts Road, Bromley, England, BR1 3QD
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-12">
+                    <div
+                      class="d-flex gap-3 align-items-center justify-content-lg-start justify-content-center py-lg-0 py-3">
+                      © 2025 Qualhub Limited. All rights reserved. </div>
+                  </div>
+                </div>
+              </div>
+            </footer>
+            <!-- Modal -->
+            <div class="modal fade" id="requestDemo" tabindex="-1" aria-labelledby="requestDemoLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content rounded-4 shadow">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="requestDemoLabel">Request a demo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body p-0">
+                    <!-- HubSpot Form Embed -->
+                    <div id="hubspotFormContainer" class="p-2" style="min-height: 520px;">
+                      <!-- HubSpot form will be rendered here -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Vendor JS Files -->
+            <script src="../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+            <script src="../../assets/vendor/aos/aos.js"></script>
+            <script src="../../assets/vendor/swiper/swiper-bundle.min.js"></script>
+            <!-- Main JS File -->
+            <!-- <script src="../../assets/js/main.js"></script> -->
+            <script>
+
+              // Loader handling
+              $(window).on('load', function () {
+                $("#loader").fadeOut(1000, () => $('#content').fadeIn(3000));
+              });
+
+              $(document).ready(function () {
+
+                // Varibales
+                const urlParams = new URLSearchParams(window.location.search);
+                const getCertificateNumber = urlParams.get('certificateNumber');
+                const certificateNumber = getCertificateNumber;
+                const DOM = {
+                  form: $('#verifyCertificateForm'),
+                  certificateInput: $('#getCertificateNumber'),
+                  validationMsg: $('#validation-msgs'),
+                  screen1: $('#screen-1'),
+                  screen2: $('#screen-2'),
+                  screen3: $('#screen-3'),
+                  verifyNewBtn: $('.VerifyNewCertificate')
+                };
+
+                const CONFIG = {
+                  apiURL: '/api/certificate-verify',
+                  certificateRegex: /^\d{9,12}$/, /* Min number is 9 max number is 12 added according to the requirement */
+                  fadeSpeed: 400
+                };
+
+
+                // Validation
+                function validateCertificateNumber(number) {
+                  if (!number || !CONFIG.certificateRegex.test(number)) {
+                    showValidation('Certificate not found. Make sure the certificate number is correct.');
+                    return false;
+                  }
+                  return true;
+                }
+
+                // API call with promise
+                function fetchCertificateData(certificateNumber) {
+                  return $.ajax({
+                    url: CONFIG.apiURL,
+                    type: 'GET',
+                    data: { certificate_number: certificateNumber },
+                    dataType: 'json',
+                    timeout: 10000,
+                  });
+                }
+
+                // Handle certificate verification
+                function verifyCertificate(certificateNumber) {
+                  if (!validateCertificateNumber(certificateNumber)) return;
+
+                  fetchCertificateData(certificateNumber)
+                    .done(handleSuccess)
+                    .fail(handleError);
+                }
+
+                function handleSuccess(response) {
+                  if (!response?.data) {
+                    showValidation('No certificate data found.');
+                    return;
+                  }
+                  showScreen2();
+                  populateCertificateData(response.data);
+                }
+
+                function handleError(xhr) {
+                  if (getCertificateNumber) {
+                    DOM.screen2.removeClass('d-flex')
+                      .addClass('d-none');
+                    DOM.screen3.removeClass('d-none')
+                      .addClass('d-flex');
+                  }
+
+                  console.error('API Error:', xhr.status, xhr.statusText);
+                  showValidation('Certificate not found. Make sure the certificate number is correct.');
+                }
+
+                // UI Updates
+                function showScreen2() {
+                  DOM.screen1.fadeOut(CONFIG.fadeSpeed, function () {
+                    $(this).removeClass('d-flex').addClass('d-none');
+                    DOM.screen2.fadeIn(CONFIG.fadeSpeed)
+                      .removeClass('d-none')
+                      .addClass('d-flex');
+                    DOM.verifyNewBtn.show();
+                  });
+                }
+
+                // populate Certificate Data
+                function populateCertificateData(data) {
+                  const fieldMap = {
+                    '.certificate-number': data.certificate_number,
+                    '.certificate-candidate-name': data.full_name,
+                    '.certificate-date-of-issue': data.certificate_issue_date,
+                    '.certificate-course-date': data.start_date,
+                    '.certificate-course-name': data.course_name,
+                    '.certificate-location': data.location,
+                    '.certificate-center-name': data.center_name,
+                    '.certificate-trainer': data.trainer
+                  };
+
+                  Object.entries(fieldMap).forEach(([selector, value]) => {
+                    $(selector).text(value || 'N/A');
+                  });
+                }
+
+                function showValidation(message) {
+                  DOM.validationMsg.text(message).addClass('text-danger');
+                }
+
+                // Initialize
+                function init() {
+
+                  // Check URL params for auto-verification
+                  if (certificateNumber) {
+                    showScreen2();
+                    verifyCertificate(certificateNumber);
+                  }
+
+                  // Form submission
+                  DOM.form.on('submit', function (e) {
+                    e.preventDefault();
+                    const certificateNumber = DOM.certificateInput.val().trim();
+                    verifyCertificate(certificateNumber);
+                  });
+                }
+
+                // Start when DOM ready
+                $(init);
+              });
+            </script>
+            <script src="../../assets/js/main.js"></script>
+</body>
+
+</html>
