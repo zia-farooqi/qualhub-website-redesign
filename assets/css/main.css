@@ -225,6 +225,9 @@
  .fs-9 {
    font-size: 12px;
  }
+ .fs-17{
+  font-size: 17px;
+ }
 
  .font-mona-sans {
    font-family: var(--secondary-font);
@@ -2308,8 +2311,8 @@
  }
 
  @media (max-width: 480px) {
-   #screen-2 .card-body .fs-6 {
-     font-size: 12px !important;
+   #screen-2 .card-body .fs-17 {
+     font-size: 14px !important;
    }
 
    .certificate-bg:before {
