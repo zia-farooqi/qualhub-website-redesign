@@ -336,7 +336,11 @@
 
                 // Validation
                 function validateCertificateNumber(number) {
-                  if (!number || !CONFIG.certificateRegex.test(number)) {
+                  if (!number) {
+                    showValidation('Please enter a certificate number.');
+                    return false;
+                  }
+                  if (!CONFIG.certificateRegex.test(number)) {
                     showValidation('Certificate not found. Make sure the certificate number is correct.');
                     return false;
                   }
